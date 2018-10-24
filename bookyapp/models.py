@@ -9,9 +9,15 @@ class Ride(models.Model):
         ('low', 'low'),
         
     )
+    LOCATION_CHOICES = (
+        ('nakuru', 'nakuru'),
+        ('nyeri', 'nyeri'),
+        ('mombasa', 'mombasa'),
+        
+    ) 
     price = models.IntegerField()
     vehicLe_number = models.CharField(choices=VEHICLE_CHOICES,null=True,max_length=80)
-    location = models.CharField(max_length=80)
+    location = models.CharField(choices=LOCATION_CHOICES,null=True,max_length=80)
     
 
 class Book(models.Model):

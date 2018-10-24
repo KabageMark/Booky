@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap4 %}
+{% load static %}
+
+<h1>Where to ?</h1>
+<form action="{% url 'search-location' %}">
+    <input type="text" name="search" placeholder="Where to ?">
+    <input type="submit">
+</form>
+
+{% if location %}
+    {% for location in location %}
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{location.location}}</h5>
+              <p class="card-text">{{location.price}}</p>
+              <p class="card-text">{{location.vehicLe_number}}</p>
+            </div>
+          </div>
+              
+          {% endfor %}
+            {% else %}
+               <h2>there are no locations searched</h2>
+        </div>
+    
+
+  
+    <h1 id='uname' >NO RESULTS</h1>
+    {% endif %}
+{% endblock %}
